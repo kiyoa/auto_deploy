@@ -3,7 +3,7 @@ import qrcode
 import random
 import redis
 from my_config import IP
-from bottle import request, Bottle, static_file, template
+from bottle import request, Bottle, static_file, template, error
 
 app = Bottle()
 
@@ -30,12 +30,22 @@ def login():
     qr.make(fit=True)
     img = qr.make_image()
     img.save('./image/{}.png'.format(image_name))
-    return template('login', url_add='http://%s:8088/image/%s' % (IP, image_name), ip=IP, flag=image_name)
+    return template('login', url_add='http://%s:8088/image?name=%s' % (IP, image_name), ip=IP, flag=image_name)
 
 
-@app.route('/image/:name')
-def return_image(name='test'):
-    return static_file('{}.png'.format(name), root='./image')
+@app.route('/image')
+def return_image():
+    name = request.GET.get('name')
+    return static_file('{}.png'.format(name), root='./image/')
+
+
+@error(403)
+def mistake403(code):
+    return 'The parameter you passed has the wrong format!'
+
+@error(404)
+def mistake404(code):
+    return 'Sorry, this page does not exist!'
 
 
 @app.route('/index')
@@ -43,3 +53,6 @@ def return_image():
     return template('index')
 
 app.run(host=IP, port='8088')
+# from gevent.wsgi import WSGIServer
+# http_server = WSGIServer(('', 8088), app)
+# http_server.serve_forever()

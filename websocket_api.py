@@ -20,7 +20,7 @@ def handle_websocket():
     try:
         message = wsock.receive()
         r = redis.Redis(host='localhost', port=6379, db=0)
-        r.setex(message, '', 10)
+        r.setex(message, '', 60)
         while True:
             end_flag = r.get(message)
             if end_flag is None:
@@ -28,7 +28,7 @@ def handle_websocket():
                 break
             elif end_flag != '':
                 wsock.send("Your message was: %r, %s用户 登录成功即将跳转...." % (message, r.get(message)))
-                wsock.close(code=666666)
+                wsock.close(code=0)
                 break
             time.sleep(3)
     except WebSocketError:

@@ -18,7 +18,7 @@
         setTimeout("b()", 2000);
     };
     ws.onclose = function(evt) {
-        if (evt.code == 666666){
+        if (evt.code == 0){
             console.log(evt.code);
         }
         else {
