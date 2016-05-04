@@ -1,4 +1,4 @@
-# sweep_login
+# sweep_login 扫码登录python实现
 
 ## 下载安装依赖库
 1. 使用pip安装
@@ -23,6 +23,6 @@ command=/home/xlchen/python/bin/gunicorn --workers=2 -k gevent --pythonpath /hom
 command=/home/xlchen/python/bin/gunicorn --workers=2 --pythonpath /home/xlchen/sweep_login -k "geventwebsocket.gunicorn.workers.GeventWebSocketWorker" -b 0.0.0.0:8080 gevent_websocket_api:web_socket_app
 ```
 
-# 注意： 没有进行登录进去的界面，没有进行认真，需要自己完善。
+# 注意： 登录进去的界面(index.heml)，没有进行认证，需要自己完善。
 
 
