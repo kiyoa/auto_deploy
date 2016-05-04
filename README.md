@@ -23,6 +23,6 @@ command=/home/xlchen/python/bin/gunicorn --workers=2 -k gevent --pythonpath /hom
 command=/home/xlchen/python/bin/gunicorn --workers=2 --pythonpath /home/xlchen/sweep_login -k "geventwebsocket.gunicorn.workers.GeventWebSocketWorker" -b 0.0.0.0:8080 gevent_websocket_api:web_socket_app
 ```
 
-# 注意： 登录进去的界面(index.heml)，没有进行认证，需要自己完善。
+# 注意： 登录进去的界面(index.html)，没有进行认证，需要自己完善。
 
 
