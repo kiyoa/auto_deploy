@@ -26,7 +26,6 @@ command=/home/xlchen/python/bin/gunicorn --workers=2 --pythonpath /home/xlchen/s
 # 注意： 登录进去的界面(index.html)，没有进行认证，需要自己完善。
 
 ## 时序图
-
 ```seq
 用户->浏览器: 输入http://163.44.171.137:8088
 浏览器->后台服务器: 通过ws链接服务端，保持链接
