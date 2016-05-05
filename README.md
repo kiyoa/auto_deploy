@@ -1,26 +1,34 @@
-# sweep_login
+# sweep_login æ‰«ç ç™»å½•pythonå®ç°
 
-## ÏÂÔØ°²×°ÒÀÀµ¿â
-1. Ê¹ÓÃpip°²×°
+## ä¸‹è½½å®‰è£…ä¾èµ–åº“
+1. ä½¿ç”¨pipå®‰è£…
 
 ```
 pip install -r requirements.txt
 ```
 
-## µ÷ÊÔÔËĞĞ
-Ö±½ÓÍ¬Ê±ÔËĞĞapi_server.py¡¢gevent_websocket_api.pyÎÄ¼ş¼´¿É
+## è°ƒè¯•è¿è¡Œ
+ç›´æ¥åŒæ—¶è¿è¡Œapi_server.pyã€gevent_websocket_api.pyæ–‡ä»¶å³å¯
 
-## Éú³É»·¾³
+## ç”Ÿæˆç¯å¢ƒ
 
 ```
-ÎÒ¸öÈËÊ¹ÓÃµÄÊÇpythonµÄsupervisor + gunicornÅäÖÃ
-ÔÚsupervisorÅäÖÃÎÄ¼şÖĞÌí¼ÓÈçÏÂÄÚÈİÔËĞĞ¼´¿É£¬Ä¿Â¼²»Í¬ÇëÖ±½Ó¸üÕı
+æˆ‘ä¸ªäººä½¿ç”¨çš„æ˜¯pythonçš„supervisor + gunicorné…ç½®
+åœ¨supervisoré…ç½®æ–‡ä»¶ä¸­æ·»åŠ å¦‚ä¸‹å†…å®¹è¿è¡Œå³å¯ï¼Œç›®å½•ä¸åŒè¯·ç›´æ¥æ›´æ­£
 
-[program:generate_qcore]
+[program:generate_qrcode]
 command=/home/xlchen/python/bin/gunicorn --workers=2 -k gevent --pythonpath /home/xlchen/sweep_login --bind=0.0.0.0:8088 api_server:app
 
 [program:sweep_api]
 command=/home/xlchen/python/bin/gunicorn --workers=2 --pythonpath /home/xlchen/sweep_login -k "geventwebsocket.gunicorn.workers.GeventWebSocketWorker" -b 0.0.0.0:8080 gevent_websocket_api:web_socket_app
 ```
+
+# æ³¨æ„ï¼š ç™»å½•è¿›å»çš„ç•Œé¢(index.html)ï¼Œæ²¡æœ‰è¿›è¡Œè®¤è¯ï¼Œéœ€è¦è‡ªå·±å®Œå–„ã€‚
+
+## æ—¶åºå›¾
+
+### è¯·æŸ¥çœ‹imageæ–‡ä»¶ä¸‹æ—¶åºå›¾ç‰‡
+
+
 
 
