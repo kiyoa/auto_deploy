@@ -26,15 +26,7 @@ command=/home/xlchen/python/bin/gunicorn --workers=2 --pythonpath /home/xlchen/s
 # 注意： 登录进去的界面(index.html)，没有进行认证，需要自己完善。
 
 ## 时序图
-```seq
-用户->浏览器: 输入http://163.44.171.137:8088
-浏览器->后台服务器: 通过ws链接服务端，保持链接
-后台服务器-> 浏览器: 返回用于扫描的包含二维码的网页
-浏览器->用户: 展示页面
-用户->app: 扫描二维码
-app->后台服务器: 授权登录
-后台服务器->浏览器: 通知浏览器登录成功，浏览器自动跳转
-```
+![seq](http://d.picphotos.baidu.com/album/s%3D1400%3Bq%3D90/sign=98dcb08644a98226bcc12f23bab28270/b90e7bec54e736d15c36befb9c504fc2d562691f.jpg)
 
 
 
