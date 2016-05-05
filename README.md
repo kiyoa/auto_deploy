@@ -26,7 +26,8 @@ command=/home/xlchen/python/bin/gunicorn --workers=2 --pythonpath /home/xlchen/s
 # 注意： 登录进去的界面(index.html)，没有进行认证，需要自己完善。
 
 ## 时序图
-![seq](http://d.picphotos.baidu.com/album/s%3D1400%3Bq%3D90/sign=98dcb08644a98226bcc12f23bab28270/b90e7bec54e736d15c36befb9c504fc2d562691f.jpg)
+
+### 请查看image文件下时序图片
 
 
 
